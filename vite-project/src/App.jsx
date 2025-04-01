@@ -1,33 +1,22 @@
-
-import './css/App.css'
-// import MovieCard from './components/MovieCard'
-import Home from './pages/Home'
-import NavBar from './components/NavBar'
-import Favorites from './pages/Favorites'
-import { Routes, Route } from 'react-router-dom'
-
+import "./css/App.css";
+import Favorites from "./pages/Favorites";
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import { MovieProvider } from "./contexts/MovieContext";
+import NavBar from "./components/NavBar";
 
 function App() {
-
   return (
-    <div>
-      <NavBar/>
-      <main className='main-content'>
+    <MovieProvider>
+      <NavBar />
+      <main className="main-content">
         <Routes>
-          <Route path='/' element={<Home />} />
-          {/* 
-          // This is the main route of the application.
-          // It renders the Home component when the user navigates to the root URL.
-        */}
-          <Route path='/favorites' element={<Favorites />} />
-          {/* 
-          // This route renders a placeholder for the Favorites page.
-          // You can replace this with your actual Favorites component later.
-        */}
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </main>
-    </div>
-  )
+    </MovieProvider>
+  );
 }
 
-export default App
+export default App;
